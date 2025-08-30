@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px;
+      text-align: center;
+    }
+    .aprobado {
+      background-color: #c8f7c5; /* verde claro */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Estudiantes</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each students}}
+        <tr class="{{#if (gt this.grade 15)}}aprobado{{/if}}">
+          <td>{{this.name}}</td>
+          <td>{{this.grade}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <a href="/">Volver al inicio</a>
+</body>
+</html>
